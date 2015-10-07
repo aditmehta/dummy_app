@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'simple_form'
 
 group :development, :test do
 
@@ -18,7 +19,6 @@ group :development, :test do
 end
 
 group :development do
-
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
