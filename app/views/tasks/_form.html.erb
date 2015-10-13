@@ -1,0 +1,5 @@
+<%= simple_form_for(task, html: { class: 'form-horizontal' }, remote: true) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.submit "Add Task", class: "btn btn-primary" %>
+<% end %>

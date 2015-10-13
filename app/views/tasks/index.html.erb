@@ -3,13 +3,9 @@
 
 <section id="task-form" class="well hidden">
   <a href="#" id="task-form-closer">&times;</a>
-  <%= simple_form_for(@new_task, html: { class: 'form-horizontal' }, remote: true) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.submit "Add Task", class: "btn btn-primary" %>
-  <% end %>
+  <%= render partial: 'tasks/form', locals: {task: @new_task} %>
 </section>
 
-<section class="list-group">
+<section id="tasks" class="list-group">
   <%= render @tasks %>
 </section>

@@ -1,6 +1,8 @@
 <% if @save_success %>
   $('#tasks').prepend('<%= j render(@task) %>');
-  $('#task-form form')[0].reset();
+  $('#task-form form').replaceWith('<%= j render(partial: "tasks/form", locals: {task: @new_task}) %>');
+
   TaskForm.hide();
 <% else %>
+  $('#task-form form').replaceWith('<%= j render(partial: "tasks/form", locals: {task: @task}) %>');
 <% end %>
