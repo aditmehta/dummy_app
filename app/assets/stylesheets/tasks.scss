@@ -14,3 +14,21 @@
     }
   }
 }
+
+#tasks {
+  .task {
+    background-color: transparent;
+    transition: background-color 0.3s ease-in;
+
+    &:hover {
+      background-color: #ecf0f1;
+    }
+
+    a.delete {
+      &, &:hover, &:visited, &:active {
+        color: #e74c3c;
+        text-decoration: none;
+      }
+    }
+  }
+}

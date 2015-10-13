@@ -1,6 +1,7 @@
-<a href="#" class="list-group-item">
+<div id="task-<%= task.id %>" class="list-group-item task">
+  <%= link_to (content_tag(:span, '', class: "glyphicon glyphicon-trash")), task_path(task), method: :delete, class: "pull-right delete", remote: true %>
   <h4 class="list-group-item-heading"><%= task.title %></h4>
   <p class="list-group-item-text">
     <%= task.description %>
   </p>
-</a>
+</div>
