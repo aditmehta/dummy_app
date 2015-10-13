@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('#task-form-trigger').click (ev) ->
+    ev.preventDefault();
+    $('#task-form').removeClass('hidden')
+    $('#task-form-trigger').addClass('hidden')
+
+  $('#task-form-closer').click (ev) ->
+    ev.preventDefault();
+    $('#task-form').addClass('hidden')
+    $('#task-form-trigger').removeClass('hidden')

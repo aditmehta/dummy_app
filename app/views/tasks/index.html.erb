@@ -1,4 +1,15 @@
+<a href="#" class="btn btn-primary pull-right" id="task-form-trigger">Add a Task</a>
 <h1>Tasks</h1>
+
+<section id="task-form" class="well hidden">
+  <a href="#" id="task-form-closer">&times;</a>
+  <%= simple_form_for(@new_task, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.submit "Add Task", class: "btn btn-primary" %>
+  <% end %>
+</section>
+
 <section class="list-group">
   <%= render @tasks %>
 </section>
