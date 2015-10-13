@@ -3,7 +3,7 @@
 
 <section id="task-form" class="well hidden">
   <a href="#" id="task-form-closer">&times;</a>
-  <%= simple_form_for(@new_task, html: { class: 'form-horizontal' }) do |f| %>
+  <%= simple_form_for(@new_task, html: { class: 'form-horizontal' }, remote: true) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.submit "Add Task", class: "btn btn-primary" %>

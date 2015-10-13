@@ -1,0 +1,6 @@
+<% if @save_success %>
+  $('#tasks').prepend('<%= j render(@task) %>');
+  $('#task-form form')[0].reset();
+  TaskForm.hide();
+<% else %>
+<% end %>
