@@ -8,6 +8,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
+    @task.position = current_user.tasks.order(position::desc).first.position + 1
     @save_success = @task.save
     @new_task = current_user.tasks.new
   end
