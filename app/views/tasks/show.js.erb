@@ -1,0 +1,3 @@
+$('.task.active').removeClass('active');
+$('#task-<%= @task.id %>').addClass('active');
+$('#task-desc').html('<%= j render(partial: "tasks/task_desc", locals: {task: @task}) %>');

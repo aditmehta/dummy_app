@@ -13,6 +13,10 @@ class TasksController < ApplicationController
     @new_task = current_user.tasks.new
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def sort
     task_ids = params[:ids].collect(&:to_i)
     tasks = Task.where(id: task_ids).group_by(&:id)
