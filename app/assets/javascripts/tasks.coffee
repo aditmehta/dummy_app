@@ -36,3 +36,8 @@ $ ->
     handle: ".drag-handle"
     stop: ->
       TaskSorter.submitTasksPositions()
+
+  $('#tasks .task h4, #tasks .task p').click ->
+    $(@).siblings('a.details').click()
+
+  $($('#tasks .task a.details')[0]).click()

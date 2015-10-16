@@ -41,6 +41,10 @@
         padding-left: 2em;
       }
 
+      h4, p {
+       cursor: pointer;
+      }
+
       &:hover {
         background-color: #ecf0f1;
 
