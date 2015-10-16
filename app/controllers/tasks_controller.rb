@@ -2,13 +2,13 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = current_user.tasks.order(position: :desc)
+    @tasks = current_user.tasks.for_display
     @new_task = current_user.tasks.new
   end
 
   def create
     @task = current_user.tasks.new(task_params)
-    @task.position = current_user.tasks.order(position::desc).first.position + 1
+    @task.position = current_user.tasks.order.for_display.first.position + 1
     @save_success = @task.save
     @new_task = current_user.tasks.new
   end

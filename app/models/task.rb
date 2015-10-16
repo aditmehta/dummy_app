@@ -12,6 +12,8 @@
 #
 
 class Task < ActiveRecord::Base
+  scope :for_display, -> {order(position: :desc)}
+  
   belongs_to :user
 
   validates :title, presence: true
