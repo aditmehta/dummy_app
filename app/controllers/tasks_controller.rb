@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = current_user.tasks.all.reverse
+    @tasks = current_user.tasks.order(position: :desc)
     @new_task = current_user.tasks.new
   end
 
@@ -10,6 +10,17 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     @save_success = @task.save
     @new_task = current_user.tasks.new
+  end
+
+  def sort
+    task_ids = params[:ids].collect(&:to_i)
+    (0...task_ids.length).each do |i|
+      task = Task.find(task_ids[i])
+      task.position = task_ids.length - i
+      task.save!
+    end
+
+    render nothing: true
   end
 
   def destroy

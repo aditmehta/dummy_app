@@ -7,6 +7,19 @@
     $('#task-form').addClass('hidden')
     $('#task-form-trigger').removeClass('hidden')
 
+@TaskSorter =
+  serializeTasks: ->
+    taskIds = []
+    $('#tasks .task').toArray().forEach (ele) ->
+      taskIds.push(parseInt(ele.id.split("-")[1]))
+    taskIds
+  submitTasksPositions: ->
+    $.ajax
+      url: "/tasks/sort"
+      type: "PUT"
+      data:
+        ids: TaskSorter.serializeTasks()
+
 $ ->
   $('#task-form-trigger').click (ev) ->
     ev.preventDefault()
@@ -17,6 +30,8 @@ $ ->
     TaskForm.hide()
 
   $('#tasks').sortable
-  items: "> div.task"
-  containment: "#tasks-container"
-  placeholder: "sortable-placeholder"
+    items: "> div.task"
+    containment: "#tasks-container"
+    placeholder: "sortable-placeholder"
+    stop: ->
+      TaskSorter.submitTasksPositions()
