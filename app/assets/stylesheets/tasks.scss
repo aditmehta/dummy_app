@@ -15,20 +15,37 @@
   }
 }
 
-#tasks {
-  .task {
-    background-color: transparent;
-    transition: background-color 0.3s ease-in;
+#tasks-container {
+  padding: 60px 0;
 
-    &:hover {
-      background-color: #ecf0f1;
+  #tasks {
+    .task {
+      background-color: transparent;
+      transition: background-color 0.3s ease-in;
+
+      &:hover {
+        background-color: #ecf0f1;
+      }
+
+      a.delete {
+        display: none;
+
+        &, &:hover, &:visited, &:active {
+          color: #e74c3c;
+          text-decoration: none;
+        }
+      }
+
+      &:hover {
+        a.delete {
+          display: inline-block;
+        }
+      }
     }
 
-    a.delete {
-      &, &:hover, &:visited, &:active {
-        color: #e74c3c;
-        text-decoration: none;
-      }
+    .sortable-placeholder {
+      height: 60px;
+      background-color: red;
     }
   }
 }

@@ -15,3 +15,8 @@ $ ->
   $('#task-form-closer').click (ev) ->
     ev.preventDefault()
     TaskForm.hide()
+
+  $('#tasks').sortable
+  items: "> div.task"
+  containment: "#tasks-container"
+  placeholder: "sortable-placeholder"
