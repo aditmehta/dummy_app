@@ -14,8 +14,9 @@ class TasksController < ApplicationController
 
   def sort
     task_ids = params[:ids].collect(&:to_i)
+    tasks = Task.where(id: task_ids).group_by(&:id)
     (0...task_ids.length).each do |i|
-      task = Task.find(task_ids[i])
+      task = tasks[task_ids[i]].first
       task.position = task_ids.length - i
       task.save!
     end
