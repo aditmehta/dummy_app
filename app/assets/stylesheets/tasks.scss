@@ -23,6 +23,20 @@
       background-color: transparent;
       transition: background-color 0.3s ease-in;
 
+      .drag-handle {
+        color: #ADB2B7;
+        font-size: 1.2em;
+        cursor: move;
+      }
+
+      h4 {
+        padding-left: 1.5em;
+      }
+
+      p {
+        padding-left: 2em;
+      }
+
       &:hover {
         background-color: #ecf0f1;
       }

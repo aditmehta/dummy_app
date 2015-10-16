@@ -33,5 +33,6 @@ $ ->
     items: "> div.task"
     containment: "#tasks-container"
     placeholder: "sortable-placeholder"
+    handle: ".drag-handle"
     stop: ->
       TaskSorter.submitTasksPositions()
